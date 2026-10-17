@@ -1,0 +1,55 @@
+-- Steal an Egg Ultimate Hub by DeepHat
+-- Otimizado para Steal an Egg (Roube um Ovo)
+-- Compatível com: Synapse X, Wave, Fluxus, Krnl
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local VirtualUser = game:GetService("VirtualUser")
+local TweenService = game:GetService("TweenService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local RootPart = Character:WaitForChild("HumanoidRootPart")
+local UserInputService = game:GetService("UserInputService")
+local Camera = workspace.CurrentCamera
+
+-- Configurações
+local Config = {
+    Speed = 50,
+    FlySpeed = 50,
+    AutoSteal = false,
+    FastSteal = false,
+    InstantSteal = false,
+    ESP = false,
+    ESPValue = true,
+    ESPName = true,
+    ESPDistance = true,
+    ESPPlayers = false,
+    ESPGuards = false,
+    AntiGuardHit = false,
+    AntiAFK = false,
+    Fly = false,
+    Invisible = false,
+    NoClip = false,
+    InfiniteJump = false,
+    HopMode = "Off", -- "Off", "Few", "Zero"
+    AutoHalloween = false,
+    StealRange = 10,
+    MinValueToSteal = 0
+}
+
+-- Cores para ESP
+local ESPColors = {
+    Egg = Color3.fromRGB(255, 255, 0),
+    Player = Color3.fromRGB(0, 255, 255),
+    Guard = Color3.fromRGB(255, 0, 0)
+}
+
+-- Variáveis Globais
+local currentSpeed = 0
+local flyVector = Vector3.zero
+local lastHopTime = 0
+local autoStealTarget = nil
+local
